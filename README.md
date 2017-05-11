@@ -1,2 +1,2 @@
-# tna-html-template
-HTML template for prototyping
+# TNA research redesign - Profile page prototype
+HTML profile page prototyping
