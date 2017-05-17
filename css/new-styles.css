@@ -95,13 +95,17 @@
 }
 
 .research-redesign-profile li {
-    line-height: 54px;
-    height: 54px;
+    line-height: 64px;
+    height: 64px;
     padding-left: 1em;
     border-bottom:2px solid #eee;
 }
 .research-redesign-profile-sidebar .sidebar-nav{
     padding: 20px 20px 20px 20px;
+}
+
+.fa-envelope {
+    margin-right:10px;
 }
 .research-redesign-profile-sidebar .sidebar-nav select {
     width:100%;
