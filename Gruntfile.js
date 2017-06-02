@@ -9,18 +9,35 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'css/tna-profile-page.css': 'css/sass/tna-profile-page.scss'
+                    'css/tna-profile-page.css': 'css/sass/tna-profile-page.scss',
+                    'css/tna-profile-page-no-sidebar.css': 'css/sass/tna-profile-page-no-sidebar.scss'
                 }
             }
         },
         watch: {
             scripts: {
-                files: 'js/*.js',
-                tasks: ['concat', 'uglify']
+                files: ['js/*.js','js/babel/*.js'],
+                tasks: ['concat', 'uglify','babel']
             },
             css: {
                 files: 'css/*.scss',
                 tasks: ['sass']
+            }
+        },
+        eslint: {
+            target: "js/babel/app.js",
+            options: {
+                configFile: 'conf/eslint.json'
+            }
+        },
+        babel: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    "js/tna-profile-page.js": "js/babel/app.js"
+                }
             }
         },
         qunit: {
@@ -52,8 +69,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-eslint');
 
     // Default task(s).
-    grunt.registerTask('default', ['sass', 'concat', 'uglify', 'watch', 'qunit']);
+    grunt.registerTask('default', ['sass', 'concat', 'uglify', 'watch', 'qunit', 'babel','eslint']);
 
 };

@@ -7,6 +7,9 @@
     "grunt-contrib-qunit": "^1.2.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-babel": "^6.0.0",
+    "babel-preset-env": "^1.1.11"
   }
 }
