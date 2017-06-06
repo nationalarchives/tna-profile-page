@@ -11,7 +11,9 @@
 
 /* Included functions */
 include 'functions.php';
-include 'inc/tna-profile-page-global-functions.php';
-include 'inc/tna-profile-page-functions.php';
+include 'inc/functions/tna-profile-page-global-functions.php';
+include 'inc/functions/tna-profile-page-functions.php';
+include 'inc/custom-post-type/profile-landing-page-meta-box.php';
+include 'inc/custom-post-type/profile-single-page-meta-box.php';
 
 

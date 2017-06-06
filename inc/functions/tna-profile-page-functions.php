@@ -73,7 +73,11 @@ function profile_page_shortcode($atts)
         if ($param != "on") {
             wp_enqueue_style('tna-profile-page-no-sidebar-styles');
 
+
+
+
             global $post;
+            // echo add_query_arg('hello', 'world', admin_url( $_SERVER['REQUEST_URI']) );
 
             $args = array(
                 'post_type' => 'profile',
@@ -81,25 +85,49 @@ function profile_page_shortcode($atts)
                 'order' => 'ASC',
                 'orderby' => 'menu_order'
             );
-            $child = new WP_Query($args);
-            if ($child->have_posts()) : while ($child->have_posts()) : $child->the_post();
-                ?>
+            $data = new WP_Query($args); ?>
 
-                <div class="row">
-                <div class="cards-wrapper equal-heights-flex-box clearfix">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="staff-profile.html"><img src="img/1.png"></a>
-                            <div class="entry-content">
-                                <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
-                                <p><?php the_excerpt(); ?></p>
-                                <p>Specialism: <?php the_category(); ?></p>
+            <div class="row profile-page">
+                <div class="col-md-12">
+                    <article>
+                        <div class="entry-header">
+                            <h1><?php the_title(); ?></h1>
+                        </div>
+                        <div class="row entry-content">
+                            <div class="col-xs-12 col-sm-8 col-md-8"><p>
+                                    <?php echo get_post_meta($post->ID, 'profile_page_receipt_blurb', true); ?>
+                                </p>
                             </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="well">
+                                    <p>
+                                        <?php echo get_post_meta($post->ID, 'profile_page_receipt_blurb_two', true); ?>
+                                    </p>
+                                    <!--<p>Some text here</p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="row">
+            <div class="cards-wrapper equal-heights-flex-box clearfix">
+
+            <?php if ($data->have_posts()) : while ($data->have_posts()) : $data->the_post(); ?>
+                <div class="margin-bottom col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                    <div class="card">
+                        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail() ?></a>
+                        <div class="entry-content">
+                            <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
+                            <p><?php the_excerpt(); ?></p>
+                            <p>Specialism: <?php get_cat_profile(get_the_category(), 'No specialism'); ?></p>
                         </div>
                     </div>
                 </div>
-            <?php endwhile;
-            else: ?>
+            <?php endwhile; ?>
+                </div>
+                </div>
+            <?php else: ?>
                 <p>Sorry, no content</p>
             <?php endif;
             wp_reset_query(); ?>
@@ -107,3 +135,50 @@ function profile_page_shortcode($atts)
         }
     }
 }
+
+/**
+ * Get categories of the post
+ * Remove the links
+ * Output each category followed by a comma
+ * Comma is not added on the last item
+ * @param $arr
+ * @return false once complete
+ */
+function get_cat_profile($arr, $message = "No categories for this entry post")
+{
+    $counter = 0;
+    if (count($arr) != 0) {
+        foreach ($arr as $category) {
+            ++$counter;
+            echo count($arr) == $counter ? $category->cat_name . '' : $category->cat_name . ', ';
+        }
+        return true;
+    } else {
+        echo $message;
+        return false;
+    }
+}
+
+
+
+
+
+/**
+ *
+ */
+
+
+function profile_page_single_template($template)
+{
+    if ('profile' == get_post_type()) {
+        // if you're here, you're on a singlar page for your costum post
+        // type and WP did NOT locate a template, use your own.
+        $template = dirname(__FILE__) . '../../../single.php';
+    }
+    return $template;
+}
+
+
+
+
+

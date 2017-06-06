@@ -16,11 +16,11 @@ module.exports = function (grunt) {
         },
         watch: {
             scripts: {
-                files: ['js/*.js','js/babel/*.js'],
-                tasks: ['concat', 'uglify','babel']
+                files: ['js/src/**/*.js'],
+                tasks: ['babel', 'concat', 'uglify']
             },
             css: {
-                files: 'css/*.scss',
+                files: 'css/**/*.scss',
                 tasks: ['sass']
             }
         },
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    "js/tna-profile-page.js": "js/babel/app.js"
+                    "js/src/tna-profile-page.js": "js/src/babel/app.js"
                 }
             }
         },
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                 separator: ';'
             },
             dist: {
-                src: ['js/tna-profile-page.js'],
+                src: ['js/src/tna-profile-page.js'],
                 dest: 'js/compiled/tna-profile-page-compiled.js'
             }
         },

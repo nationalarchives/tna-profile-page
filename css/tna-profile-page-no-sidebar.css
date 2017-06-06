@@ -2,4 +2,22 @@
   display: none; }
 
 #main {
-  width: 100%; }
+  width: 100%;
+  margin: 0; }
+
+.entry-header {
+  display: none; }
+
+article {
+  background: none; }
+  article .entry-content {
+    padding: 0; }
+
+.profile-page .cards-wrapper {
+  margin-bottom: 0; }
+.profile-page .entry-header {
+  display: block; }
+.profile-page article {
+  background: #fff; }
+  .profile-page article .entry-content {
+    padding: 20px; }
