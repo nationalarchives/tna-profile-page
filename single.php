@@ -26,7 +26,9 @@ get_header(); ?>
                                 <div class="col-xs-12 col-sm-8 col-md-9 col-lg-8">
                                     <ul class="research-redesign-profile">
                                         <li><strong>Position:</strong> Principal Records Specialist</li>
-                                        <li><strong>Specialism:</strong> <?php get_cat_profile(get_the_category(), 'No specialism'); ?></li>
+                                        <li>
+                                            <strong>Specialism:</strong> <?php get_cat_profile(get_the_category(), 'No specialism'); ?>
+                                        </li>
                                         <li><i class="fa fa-envelope" aria-hidden="true"></i>
                                             Richard.Dunley@nationalarchives.gsi.gov.uk
                                         </li>
@@ -43,7 +45,8 @@ get_header(); ?>
                             </div>
                             <div class="entry-content clearfix">
                                 <ul>
-                                    <li>S.H. Hong, K. Ntanos, et al., ‘Climate change mitigation strategies for mechanically
+                                    <li>S.H. Hong, K. Ntanos, et al., ‘Climate change mitigation strategies for
+                                        mechanically
                                         controlled repositories: The case of The National Archives, Kew’, Atmospheric
                                         Environment, 49 (2012), pp. 163-170.
                                     </li>
@@ -66,7 +69,8 @@ get_header(); ?>
                             </div>
                             <div class="entry-content clearfix">
                                 <ul>
-                                    <li>Puja Prentice, University College London, ‘Uncertainty of Damage Functions in Preventive
+                                    <li>Puja Prentice, University College London, ‘Uncertainty of Damage Functions in
+                                        Preventive
                                         Conservation of Collections’
                                     </li>
                                 </ul>
@@ -79,7 +83,8 @@ get_header(); ?>
                             </div>
                             <div class="entry-content clearfix">
                                 <ul>
-                                    <li>Dr Ann Fenech, University College London, ‘Lifetime of colour photographs in mixed
+                                    <li>Dr Ann Fenech, University College London, ‘Lifetime of colour photographs in
+                                        mixed
                                         archival collections’ (2011)
                                     </li>
                                 </ul>

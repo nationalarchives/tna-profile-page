@@ -38,7 +38,7 @@ function post_type_profile_page_init()
         'items_list_navigation' => _x('Profiles list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'textdomain'),
         'items_list' => _x('Profiles list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain'),
     );
-
+    global $page_name_shortcode;
     $args = array(
         'labels' => $labels,
         'public' => true,
@@ -46,9 +46,9 @@ function post_type_profile_page_init()
         'show_ui' => true,
         'show_in_menu' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'profile'),
+        'rewrite' => array('slug' => $page_name_shortcode),
         'capability_type' => 'post',
-        'has_archive' => true,
+        'has_archive' => false,
         'hierarchical' => false,
         'menu_position' => null,
         'taxonomies' => array('category'),
@@ -60,8 +60,6 @@ function post_type_profile_page_init()
 }
 
 
-add_shortcode('profile-page', 'profile_page_shortcode');
-
 function profile_page_shortcode($atts)
 {
     $attr = shortcode_atts(array(
@@ -72,9 +70,6 @@ function profile_page_shortcode($atts)
     foreach ($attr as $param) {
         if ($param != "on") {
             wp_enqueue_style('tna-profile-page-no-sidebar-styles');
-
-
-
 
             global $post;
             // echo add_query_arg('hello', 'world', admin_url( $_SERVER['REQUEST_URI']) );
@@ -116,6 +111,7 @@ function profile_page_shortcode($atts)
             <?php if ($data->have_posts()) : while ($data->have_posts()) : $data->the_post(); ?>
                 <div class="margin-bottom col-xs-12 col-sm-4 col-md-4 col-lg-3">
                     <div class="card">
+
                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail() ?></a>
                         <div class="entry-content">
                             <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
@@ -159,26 +155,31 @@ function get_cat_profile($arr, $message = "No categories for this entry post")
     }
 }
 
-
-
-
-
-/**
- *
- */
-
-
 function profile_page_single_template($template)
 {
     if ('profile' == get_post_type()) {
-        // if you're here, you're on a singlar page for your costum post
+        // if you're here, you're on a singular page for your custom post
         // type and WP did NOT locate a template, use your own.
         $template = dirname(__FILE__) . '../../../single.php';
     }
     return $template;
 }
 
+function blachblach(){
+    global $post, $page_name_shortcode;
 
+    $page_name_shortcode = "Neah";
 
+    if (function_exists('has_shortcode')) {
+        if (has_shortcode($post->post_content, 'profile-page')) {
+
+            $page_name_shortcode = $post->post_name;
+            add_action('admin_notices', 'post_type_profile_page_init' );
+        }
+    }
+    return $page_name_shortcode;
+}
+
+add_action('wp', 'blachblach');
 
 
