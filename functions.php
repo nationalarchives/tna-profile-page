@@ -32,7 +32,7 @@ function check_if_shortcode_exists_in_page_and_add_meta_box()
                 add_meta_box('profile-page', 'Profile landing page blurbs', 'profile_landing_page_box', 'page', 'normal', 'high');
             }
             if(is_admin() && ($screen->id == 'profile')){
-                add_meta_box('profile-page', 'Profile details', 'profile_single_page_box', 'profile', 'normal', 'high');
+                add_meta_box('profile-page', 'Profile details', 'profile_single_page_meta_box', 'profile', 'normal', 'high');
             }
         }
     }

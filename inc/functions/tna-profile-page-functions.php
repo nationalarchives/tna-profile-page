@@ -39,6 +39,8 @@ function post_type_profile_page_init()
         'items_list' => _x('Profiles list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain'),
     );
     global $page_name_shortcode;
+
+    $page_name_shortcode = "profile-page";
     $args = array(
         'labels' => $labels,
         'public' => true,
@@ -115,7 +117,7 @@ function profile_page_shortcode($atts)
                         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail() ?></a>
                         <div class="entry-content">
                             <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
-                            <p><?php the_excerpt(); ?></p>
+                            <p>Position: <?php echo get_post_meta($post->ID, 'user_profile_position', true) ?></p>
                             <p>Specialism: <?php get_cat_profile(get_the_category(), 'No specialism'); ?></p>
                         </div>
                     </div>
@@ -157,29 +159,14 @@ function get_cat_profile($arr, $message = "No categories for this entry post")
 
 function profile_page_single_template($template)
 {
-    if ('profile' == get_post_type()) {
-        // if you're here, you're on a singular page for your custom post
-        // type and WP did NOT locate a template, use your own.
-        $template = dirname(__FILE__) . '../../../single.php';
+    if (function_exists('get_post_type')) {
+        if ('profile' == get_post_type()) {
+            // if you're here, you're on a singular page for your custom post
+            // type and WP did NOT locate a template, use your own.
+            $template = dirname(__FILE__) . '../../../single.php';
+        }
     }
     return $template;
 }
-
-function blachblach(){
-    global $post, $page_name_shortcode;
-
-    $page_name_shortcode = "Neah";
-
-    if (function_exists('has_shortcode')) {
-        if (has_shortcode($post->post_content, 'profile-page')) {
-
-            $page_name_shortcode = $post->post_name;
-            add_action('admin_notices', 'post_type_profile_page_init' );
-        }
-    }
-    return $page_name_shortcode;
-}
-
-add_action('wp', 'blachblach');
 
 
