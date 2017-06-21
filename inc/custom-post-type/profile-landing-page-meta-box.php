@@ -22,21 +22,21 @@ function profile_landing_page_box($post)
     <table class="profile-page-table">
         <tbody>
         <tr>
-            <th style="width:20%">
-                <label for="profile_page_receipt_blurb">Blurb one</label>
+            <th style="width:20%; text-align:left">
+                <label for="profile_page_receipt_blurb">Landing page content</label>
             </th>
             <td>
                 <?php wp_editor($blurb_one, 'profile_page_receipt_blurb', $args); ?>
-                <p>The text entered here will appear at the top of profile page landing page.</p>
+                <br />
             </td>
         </tr>
         <tr>
-            <th style="width:20%">
-                <label for="profile_page_receipt_blurb">Blurb Two</label>
+            <th style="width:20%;text-align:left">
+                <label for="profile_page_receipt_blurb_two">Feature box</label>
             </th>
             <td>
                 <?php wp_editor($blurb_two, 'profile_page_receipt_blurb_two', $args); ?>
-                <p>The text entered here will appear at the top of profile page landing page.</p>
+                <br />
             </td>
         </tr>
         </tbody>

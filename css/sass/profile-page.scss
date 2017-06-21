@@ -13,7 +13,18 @@
 }
 
 /* Cards */
+.mobile-dev {
+    @media (max-width: 450px) {
+      width: 100% !important;
+    }
+}
 .cards-wrapper {
+  .no-img {
+    width:100%;
+    background:#f3f3f3;
+    min-height:254px;
+    height:auto;
+  }
   .margin-bottom {
     margin-bottom:30px;
   }
@@ -81,11 +92,10 @@
     list-style-type: none;
     padding: 0 ;
     li {
-      line-height: 64px;
-      height: 64px;
       padding-left: 1em;
       border-bottom: 2px solid #eee;
       list-style-image:none;
+      padding-bottom: 0.6em;
     }
   }
   .research-redesign-profile-sidebar {

@@ -11,14 +11,18 @@ function profile_define_input_type_label_meta()
     return $arr_inputs = array(
         'user_profile_position' => array('Position', 'text'),
         'user_profile_contact' => array('Contact', 'text'),
-        'user_profile_extra_headline' => array('Extra headline', 'text'),
-        'user_profile_extra' => array('Extra', 'textarea'),
-        'user_profile_extra_two_headline' => array('Extra two headline', 'text'),
-        'user_profile_extra_two' => array('Extra two', 'textarea'),
-        'user_profile_extra_three_headline' => array('Extra three headline', 'text'),
-        'user_profile_extra_three' => array('Extra three', 'textarea'),
-        'user_profile_extra_four_headline' => array('Extra four headline', 'text'),
-        'user_profile_extra_four' => array('Extra four', 'textarea')
+        /** --------------------------------------------------------------- */
+        'user_profile_extra_headline' => array('Profile banner 1 title', 'text'),
+        'user_profile_extra' => array('Profile banner 1 content', 'textarea'),
+        /** --------------------------------------------------------------- */
+        'user_profile_extra_two_headline' => array('Profile banner 2 title', 'text'),
+        'user_profile_extra_two' => array('Profile banner 2 content', 'textarea'),
+        /** --------------------------------------------------------------- */
+        'user_profile_extra_three_headline' => array('Profile banner 3 title', 'text'),
+        'user_profile_extra_three' => array('Profile banner 3 content', 'textarea'),
+        /** --------------------------------------------------------------- */
+        'user_profile_extra_four_headline' => array('Profile banner 4 title', 'text'),
+        'user_profile_extra_four' => array('Profile banner 4 content', 'textarea')
     );
 }
 
@@ -35,20 +39,19 @@ function profile_textarea_arguments()
 
 function profile_generate_input($input_type, $meta, $arg)
 {
-
     if ($input_type == 'text' || $input_type == 'tel' || $input_type == 'email') {
         echo '<tr>',
-        '<th style="width:20%">',
+        '<th style="width:20%; text-align:left">',
             '<label for="' . $meta[1] . '">' . $meta[2] . '</label>',
         '</th>',
         '<td>',
-            '<input type="' . $input_type . '" name="' . $meta[1] . '" id="' . $meta[1] . '" value="' . $meta[0] . '"/>',
+            '<input style="margin:10px 0 10px 0; width:100%;" type="' . $input_type . '" name="' . $meta[1] . '" id="' . $meta[1] . '" value="' . $meta[0] . '"/>',
         '</td>',
         '</tr>';
     } elseif ($input_type == 'textarea') {
         if (function_exists('wp_editor')) {
             echo '<tr>',
-            '<th style="width:20%">',
+            '<th style="width:20%; text-align:left;">',
                 '<label for="' . $meta[1] . '">' . $meta[2] . '</label>',
             '</th>',
             '<td>';

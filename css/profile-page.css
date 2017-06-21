@@ -12,6 +12,15 @@
   flex-wrap: wrap; }
 
 /* Cards */
+@media (max-width: 450px) {
+  .mobile-dev {
+    width: 100% !important; } }
+
+.cards-wrapper .no-img {
+  width: 100%;
+  background: #f3f3f3;
+  min-height: 254px;
+  height: auto; }
 .cards-wrapper .margin-bottom {
   margin-bottom: 30px; }
 .cards-wrapper .card {
@@ -60,11 +69,10 @@
   list-style-type: none;
   padding: 0; }
   .single-profile .research-redesign-profile li {
-    line-height: 64px;
-    height: 64px;
     padding-left: 1em;
     border-bottom: 2px solid #eee;
-    list-style-image: none; }
+    list-style-image: none;
+    padding-bottom: 0.6em; }
 .single-profile .research-redesign-profile-sidebar .sidebar-nav {
   padding: 20px 20px 20px 20px; }
   .single-profile .research-redesign-profile-sidebar .sidebar-nav select {

@@ -9,8 +9,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'css/tna-profile-page.css': 'css/sass/tna-profile-page.scss',
-                    'css/tna-profile-page-no-sidebar.css': 'css/sass/tna-profile-page-no-sidebar.scss'
+                    'css/profile-page.css': 'css/sass/profile-page.scss',
+                    'css/profile-page-no-sidebar.css': 'css/sass/profile-page-no-sidebar.scss'
                 }
             }
         },
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    "js/src/tna-profile-page.js": "js/src/babel/app.js"
+                    "js/src/profile-page.js": "js/src/babel/app.js"
                 }
             }
         },
@@ -48,8 +48,8 @@ module.exports = function (grunt) {
                 separator: ';'
             },
             dist: {
-                src: ['js/src/tna-profile-page.js'],
-                dest: 'js/compiled/tna-profile-page-compiled.js'
+                src: ['js/src/profile-page.js'],
+                dest: 'js/compiled/profile-page-compiled.js'
             }
         },
         uglify: {
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
             },
             my_target: {
                 files: {
-                    'js/compiled/tna-profile-page-compiled.min.js': ['js/compiled/tna-profile-page-compiled.js']
+                    'js/compiled/profile-page-compiled.min.js': ['js/compiled/profile-page-compiled.js']
                 }
             }
         }
