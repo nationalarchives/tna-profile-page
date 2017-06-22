@@ -5,7 +5,7 @@
  * Description: Create profile pages
  * Version: 1.0.0
  * Author: Mihai Diaconita
- * Author URI: netdesignr.com
+ * Author URI: nationalarchives.gov.uk
  * License: GPL2
  */
 
