@@ -78,7 +78,7 @@ function profile_landing_cards($post_type, $position)
             <div class="mobile-dev margin-bottom col-xs-6 col-sm-4 col-md-4 col-lg-3">
                 <div class="card">
                     <div class="entry-content">
-                        <p>Sorry, no content</p>
+                        <p>There is no content available at this time.</p>
                     </div>
                 </div>
             </div>

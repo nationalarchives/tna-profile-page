@@ -37,7 +37,8 @@ function profile_single_page_content($position, $contact)
         && function_exists('the_post_thumbnail')
         && function_exists('the_title')
         && function_exists('post_class')
-        && function_exists('the_ID')) {
+        && function_exists('the_ID')
+    ) {
 
         ${$position} = get_post_meta($post->ID, $position, true);
         ${$contact} = get_post_meta($post->ID, $contact, true);
@@ -48,18 +49,21 @@ function profile_single_page_content($position, $contact)
                     <h1><?php the_title(); ?></h1>
                 </div>
                 <div class="entry-content clearfix">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                    <div class="mobile-dev col-xs-6 col-sm-4 col-md-4 col-lg-4">
                         <?php profile_feature_image('/../../img/profile-fall-back.jpg'); ?>
                     </div>
-                    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-8">
+                    <div class="mobile-dev col-xs-6 col-sm-8 col-md-8 col-lg-8">
                         <ul class="research-redesign-profile">
-                            <li><strong>Position:</strong> <?php echo ${$position} ?></li>
-                            <li>
-                                <strong>Specialism:</strong> <?php get_cat_profile(get_the_category(), 'No specialism'); ?>
-                            </li>
-                            <li><i class="fa fa-envelope" aria-hidden="true"></i>
-                                <?php echo ${$contact} ?>
-                            </li>
+                            <?php
+                                if (isset(${$position}) && !empty(${$position})) : ?>
+                                    <li><strong>Position: </strong><?php echo ${$position} ?></li>
+                                <?php endif;
+                                if (!empty(get_the_category())) : ?>
+                                    <li><strong>Specialism: </strong> <?php get_cat_profile(get_the_category()) ?></li>
+                                <?php endif;
+                                if (isset(${$contact}) && !empty(${$contact})) : ?>
+                                    <li class="profile-contact"><i class="fa fa-envelope" aria-hidden="true"></i><span><?php echo ${$contact} ?></span></li>
+                                <?php endif; ?>
                         </ul>
                     </div>
                     <p class="breather clearfix">

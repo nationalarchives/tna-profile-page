@@ -12,7 +12,7 @@
   flex-wrap: wrap; }
 
 /* Cards */
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .mobile-dev {
     width: 100% !important; } }
 
@@ -68,6 +68,14 @@
 .single-profile .research-redesign-profile {
   list-style-type: none;
   padding: 0; }
+  .single-profile .research-redesign-profile .profile-contact span {
+    word-break: break-all; }
+  .single-profile .research-redesign-profile .profile-contact .pemail {
+    display: none; }
+  @media (max-width: 650px) {
+    .single-profile .research-redesign-profile {
+      padding-top: 20px;
+      display: block; } }
   .single-profile .research-redesign-profile li {
     padding-left: 1em;
     border-bottom: 2px solid #eee;

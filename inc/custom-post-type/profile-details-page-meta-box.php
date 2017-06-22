@@ -9,8 +9,8 @@
 function profile_define_input_type_label_meta()
 {
     return $arr_inputs = array(
-        'user_profile_position' => array('Position', 'text'),
-        'user_profile_contact' => array('Contact', 'text'),
+        'user_profile_position' => array('Title detail', 'text'),
+        'user_profile_contact' => array('Email address', 'text'),
         /** --------------------------------------------------------------- */
         'user_profile_extra_headline' => array('Profile banner 1 title', 'text'),
         'user_profile_extra' => array('Profile banner 1 content', 'textarea'),

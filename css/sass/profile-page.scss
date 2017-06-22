@@ -14,7 +14,7 @@
 
 /* Cards */
 .mobile-dev {
-    @media (max-width: 450px) {
+    @media (max-width: 480px) {
       width: 100% !important;
     }
 }
@@ -89,6 +89,18 @@
 
 .single-profile {
   .research-redesign-profile {
+    .profile-contact {
+      span {
+        word-break: break-all;
+      }
+      .pemail {
+        display:none;
+      }
+    }
+    @media(max-width:650px) {
+      padding-top:20px;
+      display:block;
+    }
     list-style-type: none;
     padding: 0 ;
     li {
