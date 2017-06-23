@@ -123,7 +123,6 @@ function profile_start_table($class)
     return '<table class="' . $class . '"><tbody>';
 }
 
-
 /**
  * 7. HTML end table
  * @return string
