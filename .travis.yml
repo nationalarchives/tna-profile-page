@@ -10,7 +10,7 @@ node_js:
 
 install:
   - composer require --dev phpunit/phpunit
-  - npm -g install npm@next
+  - npm install -g grunt-cl
   - npm install
 
 script:
