@@ -58,6 +58,8 @@ function profile_landing_cards($post_type, $position)
         && function_exists('get_the_category')
         && function_exists('wp_reset_query')
         && function_exists('the_title')
+        && function_exists('make_path_relative')
+        && function_exists('get_the_permalink')
         && function_exists('has_post_thumbnail')
         && method_exists($data, 'have_posts')
         && method_exists($data, 'the_post')
@@ -67,11 +69,11 @@ function profile_landing_cards($post_type, $position)
         <?php if ($data->have_posts()) : while ($data->have_posts()) : $data->the_post(); ?>
             <div class="mobile-dev margin-bottom col-xs-6 col-sm-4 col-md-4 col-lg-3">
                 <div class="card">
-                    <a href="<?php the_permalink(); ?>">
+                    <a href="<?= make_path_relative(get_the_permalink()); ?>">
                         <?= profile_feature_image('/../../img/profile-fall-back.jpg', has_post_thumbnail()); ?>
                     </a>
                     <div class="entry-content">
-                        <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
+                        <a href="<?= make_path_relative(get_the_permalink()); ?>"><h2><?php the_title(); ?></h2></a>
                         <?php
                         ${$position} = get_post_meta($post->ID, $position, true);
 
