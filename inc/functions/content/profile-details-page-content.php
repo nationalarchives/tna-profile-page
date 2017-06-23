@@ -34,13 +34,13 @@ function profile_single_page_content($position, $contact)
                         <ul class="research-redesign-profile">
                             <?php
                                 if (isset(${$position}) && !empty(${$position})) : ?>
-                                    <li><strong>Position: </strong><?php echo ${$position} ?></li>
+                                    <li><strong>Position: </strong><?= ${$position} ?></li>
                                 <?php endif;
                                 if (!empty(get_the_category())) : ?>
-                                    <li><strong>Specialism: </strong> <?php get_cat_profile(get_the_category()) ?></li>
+                                    <li><strong>Specialism: </strong> <?= get_cat_profile(get_the_category()) ?></li>
                                 <?php endif;
                                 if (isset(${$contact}) && !empty(${$contact})) : ?>
-                                    <li class="profile-contact"><i class="fa fa-envelope" aria-hidden="true"></i><span><?php echo ${$contact} ?></span></li>
+                                    <li class="profile-contact"><i class="fa fa-envelope" aria-hidden="true"></i><span><?= ${$contact} ?></span></li>
                                 <?php endif; ?>
                         </ul>
                     </div>

@@ -52,16 +52,16 @@ function profile_landing_cards($post_type, $position)
         'orderby' => 'menu_order'
     );
     $data = new WP_Query($args);
-    if (   function_exists('the_permalink')
+    if (function_exists('the_permalink')
         && function_exists('the_post_thumbnail')
         && function_exists('get_post_meta')
         && function_exists('get_the_category')
         && function_exists('wp_reset_query')
         && function_exists('the_title')
         && function_exists('has_post_thumbnail')
-        && method_exists ($data,'have_posts')
-        && method_exists ($data,'the_post'))
-    { ?>
+        && method_exists($data, 'have_posts')
+        && method_exists($data, 'the_post')
+    ) { ?>
         <div class="row">
         <div class="cards-wrapper equal-heights-flex-box clearfix">
         <?php if ($data->have_posts()) : while ($data->have_posts()) : $data->the_post(); ?>
@@ -76,9 +76,10 @@ function profile_landing_cards($post_type, $position)
                         ${$position} = get_post_meta($post->ID, $position, true);
 
                         if (isset(${$position}) && !empty(${$position})) : ?>
-                            <p>Position: <?php echo ${$position} ?></p>
-                        <?php endif; if (!empty(get_the_category())) : ?>
-                            <p>Specialism: <?php get_cat_profile(get_the_category()) ?></p>
+                            <p>Position: <?= ${$position} ?></p>
+                        <?php endif;
+                        if (!empty(get_the_category())) : ?>
+                            <p>Specialism: <?= get_cat_profile(get_the_category()) ?></p>
                         <?php endif; ?>
                     </div>
                 </div>

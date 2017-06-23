@@ -85,7 +85,7 @@ function profile_page_shortcode($atts)
  * Output each category followed by a comma
  * Comma is not added on the last item
  * @param $arr
- * @return false once complete
+ * @return string
  */
 function get_cat_profile($arr)
 {
@@ -96,9 +96,8 @@ function get_cat_profile($arr)
             echo count($arr) == $counter ? $category->cat_name . '' : $category->cat_name . ', ';
         }
     } else {
-        return false;
+        return '';
     }
-    return true;
 }
 
 /**

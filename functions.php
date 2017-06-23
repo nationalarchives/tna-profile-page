@@ -1,7 +1,7 @@
 <?php
 /**
  * User: mdiaconita
- * Wordpress add_action, add_filter and add_shortcode hooks
+ * 1. Wordpress add_action, add_filter and add_shortcode hooks
  */
 
 if(function_exists('add_action') && function_exists('add_filter') && function_exists('add_shortcode')) {
