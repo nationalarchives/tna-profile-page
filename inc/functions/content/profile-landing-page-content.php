@@ -1,4 +1,10 @@
 <?php
+/**
+ * User: mdiaconita
+ * ------------------ CONTENTS ---------------------------
+ * 1. Landing page content blurbs
+ * 2. Generate extra textareas
+ */
 
 function profile_landing_blurbs($landing_page_content, $feature_box)
 {
@@ -29,6 +35,12 @@ function profile_landing_blurbs($landing_page_content, $feature_box)
     <?php endif; ?>
 <?php }
 
+/**
+ * 2. Landing cards content
+ * @param $post_type
+ * @param $position
+ * @internal param $ : $post_type, $position
+ */
 function profile_landing_cards($post_type, $position)
 {
     global $post;
@@ -55,9 +67,9 @@ function profile_landing_cards($post_type, $position)
         <?php if ($data->have_posts()) : while ($data->have_posts()) : $data->the_post(); ?>
             <div class="mobile-dev margin-bottom col-xs-6 col-sm-4 col-md-4 col-lg-3">
                 <div class="card">
-                    <a href="<?php the_permalink(); ?>"><?php
-                            profile_feature_image('/../../img/profile-fall-back.jpg');
-                        ?></a>
+                    <a href="<?php the_permalink(); ?>">
+                        <?= profile_feature_image('/../../img/profile-fall-back.jpg', has_post_thumbnail()); ?>
+                    </a>
                     <div class="entry-content">
                         <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
                         <?php

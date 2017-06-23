@@ -1,9 +1,16 @@
 <?php
 /**
- * Created by PhpStorm.
+ * ------------------ CONTENTS ---------------------------
  * User: mdiaconita
- * Date: 06/06/2017
- * Time: 19:09
+ * 1. Define the inputs and their label
+ * 2. Textarea arguments
+ * 3. Generate input fields
+ * 4. Loop through array and create a get_post_meta for each element
+ * 5. Field names
+ * 6. HTML start table
+ * 7. HTML end table
+ * 8. Generate meta box for user profiles
+ * 9. Save user profile meta box
  */
 
 function profile_define_input_type_label_meta()
@@ -26,6 +33,11 @@ function profile_define_input_type_label_meta()
     );
 }
 
+/**
+ * ------------------ CONTENTS ---------------------------
+ * User: mdiaconita
+ * 2. Textarea arguments
+ */
 function profile_textarea_arguments()
 {
     return $args = array(
@@ -37,6 +49,13 @@ function profile_textarea_arguments()
     );
 }
 
+/**
+ * 3. Generate input fields
+ * @param $input_type
+ * @param $meta
+ * @param $arg
+ * @return string
+ */
 function profile_generate_input($input_type, $meta, $arg)
 {
     if ($input_type == 'text' || $input_type == 'tel' || $input_type == 'email') {
@@ -60,9 +79,13 @@ function profile_generate_input($input_type, $meta, $arg)
             '</tr>';
         }
     }
-    return '';
 }
 
+/**
+ * 4. Loop through array and create a get_post_meta for each element
+ * @param $arr
+ * @return array|string
+ */
 function profile_generate_post_meta($arr)
 {
     global $post;
@@ -75,25 +98,45 @@ function profile_generate_post_meta($arr)
             );
         }
     }
-    return '';
 }
 
+
+/**
+ * 5. Field names
+ * @param $key
+ * @param $value
+ * @return array
+ */
 function profile_field_names($key, $value)
 {
     return $fields_post_meta = array($key => $value);
 }
 
+
+/**
+ * 6. HTML start table
+ * @param $class
+ * @return string
+ */
 function profile_start_table($class)
 {
     return '<table class="' . $class . '"><tbody>';
 }
 
+
+/**
+ * 7. HTML end table
+ * @return string
+ */
 function profile_end_table()
 {
     return '</tbody></table>';
 }
 
-function profile_single_page_meta_box($post)
+/**
+ * 8. Generate meta box for user profiles
+ */
+function profile_single_page_meta_box()
 {
     if (function_exists('wp_nonce_field')) {
         wp_nonce_field(basename(__FILE__), 'profile_single_receipt_content_nonce');
@@ -110,6 +153,10 @@ function profile_single_page_meta_box($post)
     }
 }
 
+/**
+ * 9. Save user profile meta box
+ * @param $post_id
+ */
 function profile_single_meta_box_save($post_id)
 {
     if (function_exists('update_post_meta') && function_exists('wp_kses') && function_exists('wp_verify_nonce') && function_exists('wp_is_post_autosave') && function_exists('wp_is_post_revision')) {

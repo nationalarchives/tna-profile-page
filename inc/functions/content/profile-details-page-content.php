@@ -1,33 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: mdiaconita
- * Date: 21/06/2017
- * Time: 11:10
+ * ------------------ CONTENTS ---------------------------
+ * 1. Main user content area
+ * 2. Generate extra textareas
  */
-
-function profile_generate_extra_blurb($post_meta_head, $post_meta_body)
-{
-    global $post;
-
-    if (function_exists('get_post_meta')) {
-        ${$post_meta_head} = get_post_meta($post->ID, $post_meta_head, true);
-        ${$post_meta_body} = get_post_meta($post->ID, $post_meta_body, true);
-
-        if (isset(${$post_meta_head}) && !empty(${$post_meta_head}) || isset(${$post_meta_body}) && !empty(${$post_meta_body})) : ?>
-            <article class="page type-page status-publish hentry category-beta">
-                <div class="entry-header">
-                    <h1><?php echo ${$post_meta_head} ?></h1>
-                </div>
-                <div class="entry-content clearfix">
-                    <?php echo ${$post_meta_body} ?>
-                </div>
-            </article>
-        <?php endif; ?>
-    <?php }
-    return '';
-}
-
 function profile_single_page_content($position, $contact)
 {
     global $post;
@@ -37,6 +14,7 @@ function profile_single_page_content($position, $contact)
         && function_exists('the_post_thumbnail')
         && function_exists('the_title')
         && function_exists('post_class')
+        && function_exists('has_post_thumbnail')
         && function_exists('the_ID')
     ) {
 
@@ -50,7 +28,7 @@ function profile_single_page_content($position, $contact)
                 </div>
                 <div class="entry-content clearfix">
                     <div class="mobile-dev col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <?php profile_feature_image('/../../img/profile-fall-back.jpg'); ?>
+                        <?= profile_feature_image('/../../img/profile-fall-back.jpg', has_post_thumbnail()); ?>
                     </div>
                     <div class="mobile-dev col-xs-6 col-sm-8 col-md-8 col-lg-8">
                         <ul class="research-redesign-profile">
@@ -75,3 +53,28 @@ function profile_single_page_content($position, $contact)
         }
     }
 }
+
+/**
+ * Generate extra textareas
+ */
+function profile_generate_extra_blurb($post_meta_head, $post_meta_body)
+{
+    global $post;
+
+    if (function_exists('get_post_meta')) {
+        ${$post_meta_head} = get_post_meta($post->ID, $post_meta_head, true);
+        ${$post_meta_body} = get_post_meta($post->ID, $post_meta_body, true);
+
+        if (isset(${$post_meta_head}) && !empty(${$post_meta_head}) || isset(${$post_meta_body}) && !empty(${$post_meta_body})) : ?>
+            <article class="page type-page status-publish hentry category-beta">
+                <div class="entry-header">
+                    <h1><?php echo ${$post_meta_head} ?></h1>
+                </div>
+                <div class="entry-content clearfix">
+                    <?php echo ${$post_meta_body} ?>
+                </div>
+            </article>
+        <?php endif; ?>
+    <?php }
+}
+

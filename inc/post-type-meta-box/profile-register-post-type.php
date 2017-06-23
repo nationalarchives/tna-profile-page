@@ -2,6 +2,7 @@
 /**
  * Register a custom post type called profile.
  * @see get_post_type_labels() for label keys.
+ * Rewrite slug at the line 36
  */
 function post_type_profile_page_init()
 {

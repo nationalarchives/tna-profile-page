@@ -1,11 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: mdiaconita
- * Date: 31/05/2017
- * Time: 17:18
+ * Enqueue stylesheet
  */
-
 function enqueue_profile_page_styles()
 {
     if (function_exists('wp_register_style') && function_exists('plugin_dir_url') && function_exists('wp_enqueue_style')) {
@@ -17,6 +14,9 @@ function enqueue_profile_page_styles()
     }
 }
 
+/**
+ * Enqueue scripts
+ */
 function enqueue_profile_page_scripts()
 {
     if (function_exists('wp_register_script') && function_exists('plugin_dir_url') && function_exists('wp_enqueue_script')) {
@@ -25,7 +25,133 @@ function enqueue_profile_page_scripts()
     }
 }
 
+/**
+ * Check if shortcode exists in page and add meta box
+ */
+function check_if_shortcode_exists_in_page_and_add_meta_box()
+{
+    global $post;
+    if (function_exists('get_current_screen')
+        && function_exists('has_shortcode')
+        && function_exists('is_admin')
+        && function_exists('add_meta_box')
+    ) {
+        $screen = get_current_screen();
+        if (isset($screen)) {
+            if (is_admin() && ($screen->id == 'page') && has_shortcode($post->post_content, 'profile-page')) {
+                add_meta_box('profile-page', 'Profile landing page blurbs', 'profile_landing_page_box', 'page', 'normal', 'high');
+            }
+            if (is_admin() && ($screen->id == 'profile')) {
+                add_meta_box('profile-page', 'Profile details', 'profile_single_page_meta_box', 'profile', 'normal', 'high');
+            }
+        }
+    }
+}
 
+/**
+ * Create the shortcode and its content
+ * @param $atts
+ */
+function profile_page_shortcode($atts)
+{
+    if(function_exists('shortcode_atts')
+        && function_exists('wp_enqueue_style'))
+    {
+        $attr = shortcode_atts(array(
+            'sidebar' => 'off'
+        ), $atts);
+
+        foreach ($attr as $param) {
+            if ($param != "on") {
+                // Enqueue style if sidebar is OFF and apply stylesheet like e.g. hide sidebar, change container width etc.
+                wp_enqueue_style('profile-page-no-sidebar-styles');
+
+                // Layout and content on profile landing page
+                profile_landing_blurbs('profile_page_receipt_blurb', 'profile_page_receipt_blurb_two');
+                profile_landing_cards('profile', 'user_profile_position');
+
+            } else {
+                // Layout and content on profile landing page
+                profile_landing_blurbs('profile_page_receipt_blurb', 'profile_page_receipt_blurb_two');
+                profile_landing_cards('profile', 'user_profile_position');
+            }
+        }
+    }
+}
+
+/**
+ * Get categories of the post
+ * Remove the links
+ * Output each category followed by a comma
+ * Comma is not added on the last item
+ * @param $arr
+ * @return false once complete
+ */
+function get_cat_profile($arr)
+{
+    $counter = 0;
+    if (count($arr) != 0) {
+        foreach ($arr as $category) {
+            ++$counter;
+            echo count($arr) == $counter ? $category->cat_name . '' : $category->cat_name . ', ';
+        }
+    } else {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Get the profile details page template
+ * @param $template
+ * @return string
+ */
+function profile_page_single_template($template)
+{
+    if (function_exists('get_post_type')) {
+        if ('profile' == get_post_type()) {
+            // if you're here, you're on a singular page for your custom post
+            // type and WP did NOT locate a template, use your own.
+            $template = dirname(__FILE__) . '../../../tna-profile-details-page.php';
+        }
+    }
+    return $template;
+}
+
+/**
+ * Display feature image
+ * Added fallback
+ * @param $path
+ * @return string
+ */
+function profile_feature_image($path, $thumbnail_exists)
+{
+    if (function_exists('has_post_thumbnail')
+        && function_exists('plugins_url')
+        && function_exists('the_post_thumbnail'))
+    {
+        if ($thumbnail_exists) {
+            return the_post_thumbnail('medium', array('class' => 'img-responsive'));
+        } else {
+            return '<img class="img-responsive" src="' . plugins_url($path, __FILE__) . '" />';
+        }
+    }
+}
+
+/**
+ * Guard functions exist
+ * @param $arr
+ * @return bool
+ */
+function guard_functions_exist($arr){
+    $flag = true;
+    foreach ($arr as $func) {
+        if(function_exists($func) !== true) {
+            $flag = false;
+        };
+    }
+    return $flag;
+}
 
 
 
