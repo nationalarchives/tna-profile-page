@@ -5,11 +5,15 @@ language:
 php:
   - 5.5
 
+node_js:
+  - "6"
+
 install:
   - composer require --dev phpunit/phpunit
   - npm install -g npm@'>=5.0.3'
   - npm install -g grunt
   - npm install
+
 
 script:
   - phpunit tests/ProfileFunctionsTest.php
