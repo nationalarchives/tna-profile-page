@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: mdiaconita
- * Date: 06/06/2017
- * Time: 16:25
  */
 
 global $post;
@@ -16,8 +13,15 @@ if (function_exists('get_header')
     && function_exists('get_footer')
 ) {
     get_header(); ?>
-    <?php get_template_part('breadcrumb'); ?>
-
+    <div id="breadcrumb-holder" class="tna-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <?php profile_breadcrumbs() ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="primary" class="content-area">
         <div class="container">
             <div class="row">

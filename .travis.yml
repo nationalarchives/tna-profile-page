@@ -14,7 +14,6 @@ install:
   - npm install -g grunt
   - npm install
 
-
 script:
   - phpunit tests/ProfileFunctionsTest.php
   - grunt qunit
