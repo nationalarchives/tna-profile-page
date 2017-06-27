@@ -36,4 +36,4 @@ var stopSpamming = (function (config) {
     return {
         /* silence is gold */
     }
-})({emailSelector: '.profile-contact span', domain: 'nationalarchives.gov.uk'});
+})({emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk'});
