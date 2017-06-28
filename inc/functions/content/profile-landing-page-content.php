@@ -74,8 +74,7 @@ function profile_landing_cards($post_type, $position)
 
                         <div class="entry-content">
                             <h2><?php the_title(); ?></h2>
-                            <?php
-                            ${$position} = get_post_meta($post->ID, $position, true);
+                            <?php ${$position} = get_post_meta($post->ID, $position, true);
 
                             if (isset(${$position}) && !empty(${$position})) : ?>
                                 <p>Position: <?= ${$position} ?></p>

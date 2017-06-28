@@ -12,15 +12,6 @@ function enqueue_profile_page_styles()
         wp_enqueue_style('profile-page-styles');
         wp_enqueue_style('font-awesome');
 
-        global $is_safari, $is_gecko ;
-        if ($is_safari) {
-            wp_register_style( 'tna-child-styles-safari', plugin_dir_url(__FILE__) . '/css/safari.css', array(), HOME_EDD_VERSION, 'all' );
-            wp_enqueue_style( 'tna-child-styles-safari' );
-        }
-        if ($is_gecko) {
-            wp_register_style( 'tna-child-styles-firefox', plugin_dir_url(__FILE__) . '/css/firefox.css', array(), HOME_EDD_VERSION, 'all' );
-            wp_enqueue_style( 'tna-child-styles-firefox' );
-        }
     }
 }
 
@@ -33,14 +24,9 @@ function enqueue_profile_page_scripts()
         wp_register_script('profile-page-scripts', plugin_dir_url(__FILE__) . '../../js/compiled/profile-page-compiled.min.js', array(), '1.0.0', true);
         wp_enqueue_script('profile-page-scripts');
 
-        wp_register_script( 'equal-heights', plugin_dir_url(__FILE__) . '/js/jQuery.equalHeights.js', array(), HOME_EDD_VERSION, true );
-        wp_register_script( 'equal-heights-var', plugin_dir_url(__FILE__) . '/js/equalHeights.js', array(), HOME_EDD_VERSION, true );
+        wp_register_script('equal-heights', plugin_dir_url(__FILE__) . '/js/jQuery.equalHeights.js', array(), HOME_EDD_VERSION, true);
+        wp_register_script('equal-heights-var', plugin_dir_url(__FILE__) . '/js/equalHeights.js', array(), HOME_EDD_VERSION, true);
 
-        global $is_safari, $is_IE;
-        if ($is_safari || $is_IE) {
-            wp_enqueue_script( 'equal-heights' );
-            wp_enqueue_script( 'equal-heights-var' );
-        }
     }
 }
 
@@ -73,9 +59,9 @@ function check_if_shortcode_exists_in_page_and_add_meta_box()
  */
 function profile_page_shortcode($atts)
 {
-    if(function_exists('shortcode_atts')
-        && function_exists('wp_enqueue_style'))
-    {
+    if (function_exists('shortcode_atts')
+        && function_exists('wp_enqueue_style')
+    ) {
         $attr = shortcode_atts(array(
             'sidebar' => 'off'
         ), $atts);
@@ -147,8 +133,8 @@ function profile_feature_image($path, $thumbnail_exists)
     if (function_exists('has_post_thumbnail')
         && function_exists('plugins_url')
         && function_exists('make_path_relative')
-        && function_exists('the_post_thumbnail'))
-    {
+        && function_exists('the_post_thumbnail')
+    ) {
         if ($thumbnail_exists) {
             return make_path_relative(the_post_thumbnail('medium', array('class' => 'img-responsive')));
         } else {
@@ -162,27 +148,72 @@ function profile_feature_image($path, $thumbnail_exists)
  * @param $arr
  * @return bool
  */
-function guard_functions_exist($arr){
+function guard_functions_exist($arr)
+{
     $flag = true;
     foreach ($arr as $func) {
-        if(function_exists($func) !== true) {
+        if (function_exists($func) !== true) {
             $flag = false;
         };
     }
     return $flag;
 }
 
+function profile_breadcrumbs()
+{
+    if (function_exists('get_permalink')
+        && function_exists('network_site_url')
+        && function_exists('is_home')
+        && function_exists('is_front_page')
+        && function_exists('url_to_postid')
+        && function_exists('get_the_title')
+
+    ) {
+
+        $permalink = get_permalink();
+        if ($permalink !== network_site_url()) {
+            $link = str_replace(network_site_url(), '', $permalink);
+        } else {
+            $link = null;
+        }
+        $link = rtrim($link, '/');
+        $link = ltrim($link, '/');
+        $link_parts = explode('/', $link);
+        $last = end($link_parts);
+        $url = '';
+        echo '<div class="breadcrumbs">';
+        if (is_home() || is_front_page()) {
+            echo '<span><a href="' . network_site_url() . '/' . '">Home</a></span>';
+        } else {
+            echo '<span><a href="' . network_site_url() . '/' . '">Home</a></span>';
+            echo ' <span class="sep">&gt;</span> ';
+            foreach ($link_parts as $part) {
+                $url .= $part . '/';
+                $full_url = network_site_url() . '/' . $url;
+                $id = url_to_postid($full_url);
+                $title = get_the_title($id);
+                if ($part !== $last) {
+                    echo '<span><a href="' . $full_url . '">' . $title . '</a></span>';
+                    echo ' <span class="sep">&gt;</span> ';
+                } else {
+                    echo '<span>' . $title . '</span>';
+                }
+            }
+        }
+        echo '</div>';
+    }
+}
 
 /**
  * @param $classes
  * @return array
  */
-function profile_body_class($classes ) {
+function profile_body_class($classes)
+{
 
     $classes[] = 'profile-page-plugin';
 
     return $classes;
 
 }
-
 
