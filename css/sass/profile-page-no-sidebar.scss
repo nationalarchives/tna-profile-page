@@ -1,37 +1,42 @@
-#sidebar {
-  display: none;
-}
+.profile-page-plugin {
 
-#main {
-  width: 100%;
-  @media (max-width:768px) {
-    width: 100% !important;
+  #sidebar {
+    display: none;
   }
-  margin: 0;
-}
 
-.entry-header {
-  display: none;
-}
-
-article {
-  background: none;
-  .entry-content {
-    padding: 0;
+  #main {
+    width: 100%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    margin: 0;
   }
-}
 
-.profile-page {
-  .cards-wrapper {
-    margin-bottom: 0;
-  }
   .entry-header {
-    display: block;
+    display: none;
   }
+
   article {
-    background: #fff;
+    background: none;
     .entry-content {
-      padding: 20px;
+      padding: 0;
+    }
+  }
+
+  .profile-page {
+    .cards-wrapper {
+      margin-bottom: 0;
+    }
+    .entry-header {
+      display: block;
+    }
+    article {
+      background: #fff;
+      .entry-content {
+        padding: 20px;
+      }
     }
   }
 }
+
+

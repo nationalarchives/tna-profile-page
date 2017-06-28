@@ -2,132 +2,139 @@
  * TNA Profile Page Style
  * Card
  */
-/* Home global */
-.equal-heights-flex-box {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
 
-/* Cards */
-.mobile-dev {
+/* Home global */
+
+.profile-page-plugin {
+
+  .equal-heights-flex-box {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  /* Cards */
+  .mobile-dev {
     @media (max-width: 480px) {
-      width: 100% !important;
-    }
-}
-.cards-wrapper {
-  .no-img {
-    width:100%;
-    background:#f3f3f3;
-    min-height:254px;
-    height:auto;
-  }
-  .margin-bottom {
-    margin-bottom:30px;
-  }
-  .card {
-    position: relative;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px #ddd;
-    padding: 10px;
-    .content-type {
       width: 100%;
-      img {
-        float: right;
-        opacity: 0.5;
-      }
     }
-    .entry-content {
-      padding: 1em;
+  }
+
+  .cards-wrapper {
+    .no-img {
+      width: 100%;
+      background: #f3f3f3;
+      min-height: 254px;
+      height: auto;
+    }
+    .margin-bottom {
+      margin-bottom: 30px;
+    }
+    .card {
+      position: relative;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: 0 2px 5px #ddd;
+      padding: 10px;
+      .content-type {
+        width: 100%;
+        img {
+          float: right;
+          opacity: 0.5;
+        }
+      }
+      .entry-content {
+        padding: 1em;
+        p {
+          color: #444;
+        }
+      }
+      .entry-thumbnail {
+        width: 100%;
+        height: 185px;
+        background-color: #ddd;
+        background-position: center center;
+        background-size: cover;
+        img {
+          width: 100%;
+        }
+      }
       p {
-        color: #444;
+        margin-bottom: 0.5em;
       }
-    }
-    .entry-thumbnail {
-      width: 100%;
-      height: 185px;
-      background-color: #ddd;
-      background-position: center center;
-      background-size: cover;
+      h3 {
+        margin: 0.5em 0;
+        a {
+          font-family: Bitter, "Open Sans", arial, serif;
+        }
+      }
       img {
         width: 100%;
       }
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
-    h3 {
-      margin: 0.5em 0;
       a {
-        font-family: Bitter, "Open Sans", arial, serif !important;
-      }
-    }
-    img {
-      width: 100%;
-    }
-    a {
-      position: relative;
-      display: block;
-      &:link .content-type,
-      &:visited .content-type {
-        color: #8b8b8b;
-        font-size: 0.9em;
-      }
-      &:hover {
-        text-decoration: none;
-        h3 {
-          text-decoration: underline;
+        position: relative;
+        display: block;
+        &:link .content-type,
+        &:visited .content-type {
+          color: #8b8b8b;
+          font-size: 0.9em;
+        }
+        &:hover {
+          text-decoration: none;
+          h3 {
+            text-decoration: underline;
+          }
         }
       }
     }
   }
 }
+  .single-profile {
+    .research-redesign-profile {
+      list-style-type: none;
+      .profile-contact {
+        span {
+          word-break: break-all;
+        }
+        .pemail {
+          display: none;
+        }
+      }
+      @media(max-width: 650px) {
+        padding-top: 20px;
+        display: block;
+      }
+      padding: 0;
+      li {
+        padding-left: 1em;
+        border-bottom: 2px solid #eee;
+        list-style-image: none;
+        padding-bottom: 0.6em;
+      }
+    }
+    .research-redesign-profile-sidebar {
+      .sidebar-nav {
+        padding: 20px 20px 20px 20px;
+        select {
+          width: 100%;
+        }
+      }
+    }
+    .entry-content {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      p {
+        padding: 0 14px 0 14px;
+      }
+    }
+    .fa-envelope {
+      margin-right: 10px;
+    }
+  }
 
-.single-profile {
-  .research-redesign-profile {
-    .profile-contact {
-      span {
-        word-break: break-all;
-      }
-      .pemail {
-        display:none;
-      }
-    }
-    @media(max-width:650px) {
-      padding-top:20px;
-      display:block;
-    }
-    list-style-type: none;
-    padding: 0 ;
-    li {
-      padding-left: 1em;
-      border-bottom: 2px solid #eee;
-      list-style-image:none;
-      padding-bottom: 0.6em;
-    }
-  }
-  .research-redesign-profile-sidebar {
-    .sidebar-nav{
-      padding: 20px 20px 20px 20px;
-      select {
-        width:100%;
-      }
-    }
-  }
-  .entry-content {
-    img {
-      width:100%;
-      height:100%;
-    }
-    p{
-      padding:0 14px 0 14px;
-    }
-  }
-  .fa-envelope {
-    margin-right:10px;
-  }
-}
+

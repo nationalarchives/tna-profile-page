@@ -68,10 +68,10 @@ function profile_generate_extra_blurb($post_meta_head, $post_meta_body)
         if (isset(${$post_meta_head}) && !empty(${$post_meta_head}) || isset(${$post_meta_body}) && !empty(${$post_meta_body})) : ?>
             <article class="page type-page status-publish hentry category-beta">
                 <div class="entry-header">
-                    <h1><?php echo ${$post_meta_head} ?></h1>
+                    <h1><?= ${$post_meta_head} ?></h1>
                 </div>
                 <div class="entry-content clearfix">
-                    <?php echo ${$post_meta_body} ?>
+                    <?= ${$post_meta_body} ?>
                 </div>
             </article>
         <?php endif; ?>

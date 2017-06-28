@@ -11,6 +11,16 @@ function enqueue_profile_page_styles()
         wp_register_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
         wp_enqueue_style('profile-page-styles');
         wp_enqueue_style('font-awesome');
+
+        global $is_safari, $is_gecko ;
+        if ($is_safari) {
+            wp_register_style( 'tna-child-styles-safari', plugin_dir_url(__FILE__) . '/css/safari.css', array(), HOME_EDD_VERSION, 'all' );
+            wp_enqueue_style( 'tna-child-styles-safari' );
+        }
+        if ($is_gecko) {
+            wp_register_style( 'tna-child-styles-firefox', plugin_dir_url(__FILE__) . '/css/firefox.css', array(), HOME_EDD_VERSION, 'all' );
+            wp_enqueue_style( 'tna-child-styles-firefox' );
+        }
     }
 }
 
@@ -22,6 +32,15 @@ function enqueue_profile_page_scripts()
     if (function_exists('wp_register_script') && function_exists('plugin_dir_url') && function_exists('wp_enqueue_script')) {
         wp_register_script('profile-page-scripts', plugin_dir_url(__FILE__) . '../../js/compiled/profile-page-compiled.min.js', array(), '1.0.0', true);
         wp_enqueue_script('profile-page-scripts');
+
+        wp_register_script( 'equal-heights', plugin_dir_url(__FILE__) . '/js/jQuery.equalHeights.js', array(), HOME_EDD_VERSION, true );
+        wp_register_script( 'equal-heights-var', plugin_dir_url(__FILE__) . '/js/equalHeights.js', array(), HOME_EDD_VERSION, true );
+
+        global $is_safari, $is_IE;
+        if ($is_safari || $is_IE) {
+            wp_enqueue_script( 'equal-heights' );
+            wp_enqueue_script( 'equal-heights-var' );
+        }
     }
 }
 
@@ -127,10 +146,11 @@ function profile_feature_image($path, $thumbnail_exists)
 {
     if (function_exists('has_post_thumbnail')
         && function_exists('plugins_url')
+        && function_exists('make_path_relative')
         && function_exists('the_post_thumbnail'))
     {
         if ($thumbnail_exists) {
-            return the_post_thumbnail('medium', array('class' => 'img-responsive'));
+            return make_path_relative(the_post_thumbnail('medium', array('class' => 'img-responsive')));
         } else {
             return '<img class="img-responsive" src="' . plugins_url($path, __FILE__) . '" />';
         }
@@ -152,5 +172,17 @@ function guard_functions_exist($arr){
     return $flag;
 }
 
+
+/**
+ * @param $classes
+ * @return array
+ */
+function profile_body_class($classes ) {
+
+    $classes[] = 'profile-page-plugin';
+
+    return $classes;
+
+}
 
 

@@ -13,8 +13,11 @@ if(function_exists('add_action') && function_exists('add_filter') && function_ex
     add_action('save_post', 'profile_page_meta_box_save');
     add_action('save_post', 'profile_single_meta_box_save');
 
+
     // Add filters
     add_filter('single_template', 'profile_page_single_template');
+    add_filter( 'body_class','profile_body_class' );
+
     // Add short-code
     add_shortcode('profile-page', 'profile_page_shortcode');
 }
