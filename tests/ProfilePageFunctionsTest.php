@@ -99,4 +99,8 @@ class ProfilePageFunctionsTest extends \PHPUnit_Framework_TestCase
     public function testProfile_page_meta_box_saveExists(){
         $this->assertTrue(function_exists('profile_page_meta_box_save'));
     }
+
+    public function testProfile_breadcrumbsExists(){
+        $this->assertTrue(function_exists('profile_breadcrumbs'));
+    }
 }

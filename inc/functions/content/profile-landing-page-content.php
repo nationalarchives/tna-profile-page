@@ -18,13 +18,13 @@ function profile_landing_blurbs($landing_page_content, $feature_box)
                     </div>
                     <div class="row entry-content">
                         <div class="col-xs-12 col-sm-8 col-md-8"><p>
-                                <?php echo get_post_meta($post->ID, $landing_page_content, true); ?>
+                                <?= get_post_meta($post->ID, $landing_page_content, true); ?>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4">
                             <div class="well">
                                 <p>
-                                    <?php echo get_post_meta($post->ID, $feature_box, true); ?>
+                                    <?= get_post_meta($post->ID, $feature_box, true); ?>
                                 </p>
                             </div>
                         </div>
@@ -74,8 +74,7 @@ function profile_landing_cards($post_type, $position)
                     </a>
                     <div class="entry-content">
                         <a href="<?= make_path_relative(get_the_permalink()); ?>"><h2><?php the_title(); ?></h2></a>
-                        <?php
-                        ${$position} = get_post_meta($post->ID, $position, true);
+                        <?php  ${$position} = get_post_meta($post->ID, $position, true);
 
                         if (isset(${$position}) && !empty(${$position})) : ?>
                             <p>Position: <?= ${$position} ?></p>

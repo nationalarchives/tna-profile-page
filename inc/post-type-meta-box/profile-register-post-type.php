@@ -33,7 +33,7 @@ function post_type_profile_page_init()
         'items_list' => _x('Profiles list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain'),
     );
 
-    $page_name_shortcode = "staff-profiles";
+    $page_name_shortcode = "about/our-role/our-research-and-collaboration/staff-profiles";
 
     $args = array(
         'labels' => $labels,
