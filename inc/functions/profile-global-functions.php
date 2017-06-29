@@ -227,3 +227,10 @@ function profile_body_class($classes)
 
 }
 
+/**
+ * @param $sources
+ * @return bool
+ */
+function profile_disable_srcset($sources ) {
+    return false;
+}

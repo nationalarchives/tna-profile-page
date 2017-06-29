@@ -4,7 +4,10 @@
  * 1. Wordpress add_action, add_filter and add_shortcode hooks
  */
 
-if(function_exists('add_action') && function_exists('add_filter') && function_exists('add_shortcode')) {
+if(function_exists('add_action')
+    && function_exists('add_filter')
+    && function_exists('remove_action')
+    && function_exists('add_shortcode')) {
     // Add actions
     add_action('wp_enqueue_scripts', 'enqueue_profile_page_styles');
     add_action('wp_enqueue_scripts', 'enqueue_profile_page_scripts');
@@ -17,7 +20,13 @@ if(function_exists('add_action') && function_exists('add_filter') && function_ex
     // Add filters
     add_filter('single_template', 'profile_page_single_template');
     add_filter( 'body_class','profile_body_class' );
+    add_filter( 'wp_calculate_image_srcset', 'profile_disable_srcset' );
 
     // Add short-code
     add_shortcode('profile-page', 'profile_page_shortcode');
+
+    // Remove action
+    // removes oembed discorvery link
+    remove_action('wp_head','wp_oembed_add_discovery_links', 10 );
+    remove_action('wp_head','wp_oembed_add_host_js');
 }

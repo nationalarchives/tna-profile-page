@@ -103,4 +103,8 @@ class ProfilePageFunctionsTest extends \PHPUnit_Framework_TestCase
     public function testProfile_breadcrumbsExists(){
         $this->assertTrue(function_exists('profile_breadcrumbs'));
     }
+
+    public function testProfile_disable_srcsetExists(){
+        $this->assertTrue(function_exists('profile_disable_srcset'));
+    }
 }
