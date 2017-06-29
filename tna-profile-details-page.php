@@ -11,17 +11,10 @@ if (function_exists('get_header')
     && function_exists('the_post')
     && function_exists('get_post_meta')
     && function_exists('get_footer')
+    && function_exists('make_path_relative')
 ) {
     get_header(); ?>
-    <div id="breadcrumb-holder" class="tna-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <?php profile_breadcrumbs() ?>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php make_path_relative(get_template_part('breadcrumb')); ?>
     <div id="primary" class="content-area">
         <div class="container">
             <div class="row">
