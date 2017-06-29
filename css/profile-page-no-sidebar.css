@@ -1,19 +1,14 @@
 .profile-page-plugin #sidebar {
   display: none; }
 .profile-page-plugin #main {
-  width: 100%;
+  width: 100% !important;
   margin: 0; }
-  @media (max-width: 768px) {
-    .profile-page-plugin #main {
-      width: 100%; } }
 .profile-page-plugin .entry-header {
   display: none; }
 .profile-page-plugin article {
   background: none; }
   .profile-page-plugin article .entry-content {
     padding: 0; }
-.profile-page-plugin .profile-page .cards-wrapper {
-  margin-bottom: 0; }
 .profile-page-plugin .profile-page .entry-header {
   display: block; }
 .profile-page-plugin .profile-page article {

@@ -20,37 +20,36 @@ function profile_single_page_content($position, $contact)
 
         ${$position} = get_post_meta($post->ID, $position, true);
         ${$contact} = get_post_meta($post->ID, $contact, true);
-
-        if (isset(${$position}) && !empty(${$position}) || isset(${$contact}) && !empty(${$contact})) { ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="entry-header">
-                    <h1><?php the_title(); ?></h1>
+        ?>
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <div class="entry-header">
+                <h1><?php the_title(); ?></h1>
+            </div>
+            <div class="entry-content clearfix">
+                <div class="mobile-dev col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                    <?= profile_feature_image('/../../img/profile-fall-back.jpg', has_post_thumbnail()); ?>
                 </div>
-                <div class="entry-content clearfix">
-                    <div class="mobile-dev col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <?= profile_feature_image('/../../img/profile-fall-back.jpg', has_post_thumbnail()); ?>
-                    </div>
-                    <div class="mobile-dev col-xs-6 col-sm-8 col-md-8 col-lg-8">
-                        <ul class="research-redesign-profile">
-                            <?php
-                                if (isset(${$position}) && !empty(${$position})) : ?>
-                                    <li><strong>Position: </strong><?= ${$position} ?></li>
-                                <?php endif;
-                                if (!empty(get_the_category())) : ?>
-                                    <li><strong>Specialism: </strong> <?= get_cat_profile(get_the_category()) ?></li>
-                                <?php endif;
-                                if (isset(${$contact}) && !empty(${$contact})) : ?>
-                                    <li class="profile-contact"><i class="fa fa-envelope" aria-hidden="true"></i><span><?= ${$contact} ?></span></li>
-                                <?php endif; ?>
-                        </ul>
-                    </div>
-                    <p class="breather clearfix">
-                        <?php the_content(); ?>
-                    </p>
+                <div class="mobile-dev col-xs-6 col-sm-8 col-md-8 col-lg-8">
+                    <ul class="research-redesign-profile">
+                        <?php
+                        if (isset(${$position}) && !empty(${$position}) || isset(${$contact}) && !empty(${$contact}))  : ?>
+                            <li><strong>Position: </strong><?= ${$position} ?></li>
+                        <?php endif;
+                        if (!empty(get_the_category())) : ?>
+                            <li><strong>Specialism: </strong> <?= get_cat_profile(get_the_category()) ?></li>
+                        <?php endif;
+                        if (isset(${$contact}) && !empty(${$contact})) : ?>
+                            <li class="profile-contact"><i class="fa fa-envelope"
+                                                           aria-hidden="true"></i><span><?= ${$contact} ?></span></li>
+                        <?php endif; ?>
+                    </ul>
                 </div>
-            </article>
-            <?php
-        }
+                <p class="breather clearfix">
+                    <?php the_content(); ?>
+                </p>
+            </div>
+        </article>
+        <?php
     }
 }
 

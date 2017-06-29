@@ -1,14 +1,10 @@
 .profile-page-plugin {
-
   #sidebar {
     display: none;
   }
 
   #main {
-    width: 100%;
-    @media (max-width: 768px) {
-      width: 100%;
-    }
+    width: 100% !important;
     margin: 0;
   }
 
@@ -24,9 +20,6 @@
   }
 
   .profile-page {
-    .cards-wrapper {
-      margin-bottom: 0;
-    }
     .entry-header {
       display: block;
     }
