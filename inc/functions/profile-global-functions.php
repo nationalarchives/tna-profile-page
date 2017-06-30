@@ -234,14 +234,3 @@ function profile_body_class($classes)
 function profile_disable_srcset($sources ) {
     return false;
 }
-
-function the_breadcrumb() {
-    global $post;
-    $parent_title = get_the_title( $post->post_parent );
-    $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    $str = preg_replace('#^https?://#', '', $actual_link);
-    $pieces = explode("/", $str);
-    $reverse = array_reverse($pieces);
-
-    printf('<a href="%s">%s</a>', $reverse[2], $reverse[2]);
-}
