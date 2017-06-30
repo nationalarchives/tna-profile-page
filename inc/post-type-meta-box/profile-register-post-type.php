@@ -8,7 +8,7 @@ function post_type_profile_page_init()
 {
     $labels = array(
         'name' => _x('Profiles', 'Post type general name', 'textdomain'),
-        'singular_name' => _x('Profile', 'Post type singular name', 'textdomain'),
+        'singular_name' => _x('Staff Profiles', 'Post type singular name', 'textdomain'),
         'menu_name' => _x('Profiles', 'Admin Menu text', 'textdomain'),
         'name_admin_bar' => _x('Profile', 'Add New on Toolbar', 'textdomain'),
         'add_new' => __('Add New', 'textdomain'),
@@ -33,7 +33,7 @@ function post_type_profile_page_init()
         'items_list' => _x('Profiles list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'textdomain'),
     );
 
-    $page_name_shortcode = "staff-profiles";
+    $page_name_shortcode = "about/our-role/our-research-and-collaboration/staff-profiles";
 
     $args = array(
         'labels' => $labels,
