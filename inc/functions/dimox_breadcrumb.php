@@ -106,8 +106,7 @@ function dimox_breadcrumb() {
             $pieces = explode("/", $actual_link);
             $reverse = array_reverse($pieces);
             $url = substr($actual_link, 0, strpos($actual_link, $reverse[2]));
-            echo '<a href='. $url . $reverse[2] .'>Staff profiles</a>';
-
+            echo '<a href='. home_url() . $pre_path . '/' .$reverse[2] .'>Staff profiles</a>';
             echo $sep;
             echo $parent_title = get_the_title( $post->post_parent );
         }
