@@ -14,7 +14,7 @@ if (function_exists('get_header')
     && function_exists('make_path_relative')
 ) {
     get_header(); ?>
-    <?php make_path_relative(get_template_part('breadcrumb')); ?>
+    <?php make_path_relative(include_once'breadcrumb.php'); ?>
     <div id="primary" class="content-area">
         <div class="container">
             <div class="row">

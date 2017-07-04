@@ -55,4 +55,9 @@ include 'inc/post-type-meta-box/profile-landing-page-meta-box.php';
  */
 include 'inc/post-type-meta-box/profile-details-page-meta-box.php';
 
+/**
+ * 1. Breadcrumbs
+ */
+include 'inc/functions/dimox_breadcrumb.php';
+
 
