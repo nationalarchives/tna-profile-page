@@ -14,11 +14,11 @@ before_install:
   - node --version
 
 install:
+  - npm test
   - composer require --dev phpunit/phpunit
   - npm install
 
 script:
-  - phpunit tests/ProfileFunctionsTest.php
   - grunt qunit
 
 notifications:
