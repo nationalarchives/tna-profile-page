@@ -32,7 +32,7 @@ function profile_single_page_content($position, $contact)
                 <div class="mobile-dev col-xs-6 col-sm-8 col-md-8 col-lg-8">
                     <ul class="research-redesign-profile">
                         <?php
-                        if (isset(${$position}) && !empty(${$position}) || isset(${$contact}) && !empty(${$contact}))  : ?>
+                        if (isset(${$position}) && !empty(${$position}))  : ?>
                             <li><strong>Position: </strong><?= ${$position} ?></li>
                         <?php endif;
                         if (!empty(get_the_category())) : ?>
