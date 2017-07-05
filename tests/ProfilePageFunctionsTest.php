@@ -3,13 +3,13 @@
 /**
  * User: mdiaconita
  */
-class TestPageFunctionsTest extends \PHPUnit_Framework_TestCase
+class ProfilePageFunctionsTest extends \PHPUnit_Framework_TestCase
 {
     public function testEnqueue_profile_page_stylesExists(){
         $this->assertTrue(true);
     }
 
-   /* public function testEnqueue_profile_page_scriptsExists()
+    public function testEnqueue_profile_page_scriptsExists()
     {
         $this->assertTrue(function_exists('enqueue_profile_page_scripts'));
     }
@@ -132,5 +132,5 @@ class TestPageFunctionsTest extends \PHPUnit_Framework_TestCase
     public function testProfile_disable_srcsetExists()
     {
         $this->assertTrue(function_exists('profile_disable_srcset'));
-    }*/
+    }
 }

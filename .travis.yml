@@ -19,7 +19,7 @@ install:
   - npm install
 
 script:
-  - phpunit tests/ProfileFunctionsTest.php
+  - phpunit tests/ProfilePageFunctionsTest.php
   - grunt qunit
 
 notifications:
