@@ -3,7 +3,7 @@
 /**
  * User: mdiaconita
  */
-class ProfilePageFunctionsTest extends \PHPUnit_Framework_TestCase
+class TestPageFunctionsTest extends \PHPUnit_Framework_TestCase
 {
     public function testEnqueue_profile_page_stylesExists(){
         $this->assertTrue(true);
