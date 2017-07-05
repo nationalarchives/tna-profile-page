@@ -73,6 +73,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-eslint');
 
     // Default task(s).
-    grunt.registerTask('default', ['sass', 'concat', 'uglify', 'watch', 'qunit', 'babel','eslint']);
+    grunt.registerTask('default', ['sass', 'eslint', 'babel','concat', 'uglify', 'watch', 'qunit']);
 
 };
