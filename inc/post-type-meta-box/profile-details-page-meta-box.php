@@ -171,7 +171,8 @@ function profile_single_meta_box_save($post_id)
         $allowed = array(
             'a' => array(
                 'href' => array(),
-                'title' => array()
+                'title' => array(),
+                'target' => array()
             ),
             'br' => array(),
             'em' => array(),
