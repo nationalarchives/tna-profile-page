@@ -48,8 +48,7 @@ function profile_landing_cards($post_type, $position)
     $args = array(
         'post_type' => $post_type,
         'posts_per_page' => -1,
-        'order' => 'ASC',
-        'orderby' => 'menu_order'
+        'orderby' => 'date'
     );
     $data = new WP_Query($args);
     if (function_exists('the_permalink')
