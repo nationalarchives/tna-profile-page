@@ -29,14 +29,6 @@ function enqueue_profile_page_scripts()
     {
         wp_register_script('profile-page-scripts', plugin_dir_url(__FILE__) . '../../js/compiled/profile-page-compiled.min.js', array(), '1.0.0', true);
         wp_enqueue_script('profile-page-scripts');
-
-        wp_register_script( 'equal-heights', plugin_dir_url(__FILE__) . '/js/jQuery.equalHeights.js', array(), HOME_EDD_VERSION, true );
-        wp_register_script( 'equal-heights-var', plugin_dir_url(__FILE__) . '/js/equalHeights.js', array(), HOME_EDD_VERSION, true );
-        wp_enqueue_script( 'equal-heights' );
-        wp_script_add_data( 'equal-heights', 'conditional', 'lte IE 9' );
-        wp_enqueue_script( 'equal-heights-var' );
-        wp_script_add_data( 'equal-heights-var', 'conditional', 'lte IE 9' );
-
     }
 }
 
