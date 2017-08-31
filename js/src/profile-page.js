@@ -1,9 +1,5 @@
 "use strict";
 
-var consoleLog = function () {
-    console.log("%c The National Archives " + "%cProfile Page WP plugin is" + "%c enabled", "color:red;", "color:black", "color:blue");
-}();
-
 var stopSpamming = function (config) {
     // DOM selector
     var $profileEmail = $(config.emailSelector);
