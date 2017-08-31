@@ -1,27 +1,28 @@
 "use strict";
 
 var consoleLog = function () {
-    console.log("%c The National Archives " + "%c Profile Page" + "%c is enabled", "color:red;", "color:black", "color:blue");
+    console.log("%c The National Archives " + "%cProfile Page WP plugin is" + "%c enabled", "color:red;", "color:black", "color:blue");
 }();
 
 var stopSpamming = function (config) {
+    // DOM selector
     var $profileEmail = $(config.emailSelector);
-
+    // Pass the DOM to the text function
     var getProfileEmail = function getProfileEmail() {
-        return $profileEmail.html();
+        return $profileEmail.text();
     };
-
-    var getPartFromEmail = function getPartFromEmail() {
-        if (getProfileEmail().indexOf('@') !== -1) {
-            var atPos = getProfileEmail().indexOf('@');
-            return getProfileEmail().substring(atPos + 1, -1);
+    // Get @ from email
+    var getPartFromEmail = function getPartFromEmail(getProfile) {
+        if (!!getProfile && getProfile.indexOf('@') !== -1) {
+            var atPos = getProfile.indexOf('@');
+            return getProfile.substring(atPos + 1, -1);
         }
     };
-
+    // Append DOM element
     var appendDOMElem = function appendDOMElem() {
-        return $profileEmail.html(getPartFromEmail());
+        return $profileEmail.text(getPartFromEmail(getProfileEmail()));
     };
-
+    // Concat elements
     var concatElem = function concatElem() {
         return appendDOMElem() + $profileEmail.append("<div class='pemail'>TNA</div>") + $profileEmail.append(config.domain);
     };
@@ -34,8 +35,6 @@ var stopSpamming = function (config) {
     // Call init
     init();
 
-    return {
-        /* silence is gold */
-    };
+    return {/* silence is gold */};
 }({ emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk' });
 //# sourceMappingURL=profile-page.js.map
