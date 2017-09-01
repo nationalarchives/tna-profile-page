@@ -1,0 +1,29 @@
+language:
+  - php
+  - node_js
+
+php:
+  - 5.5
+
+node_js:
+  - "4"
+
+before_install:
+  - curl -s -o $HOME/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh
+  - source $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - node --version
+
+install:
+  - npm test
+  - composer require --dev phpunit/phpunit
+  - npm install
+
+script:
+  - phpunit tests/ProfilePageFunctionsTest.php
+  - grunt qunit
+
+notifications:
+  slack:
+    rooms:
+      - tnawebteam:C2GnodnLsxhwwGvr0xAcajzc#code-builds
