@@ -7,7 +7,7 @@ var stopSpamming = function (config) {
     var getProfileEmail = function getProfileEmail() {
         return $profileEmail.text();
     };
-    // Get @ from email
+    // Get @ from email DOM
     var getPartFromEmail = function getPartFromEmail(getProfile) {
         if (!!getProfile && getProfile.indexOf('@') !== -1) {
             var atPos = getProfile.indexOf('@');

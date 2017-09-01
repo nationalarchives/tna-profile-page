@@ -1,11 +1,10 @@
 "use strict";
-
 var stopSpamming = (function (config) {
     // DOM selector
     let $profileEmail = $(config.emailSelector);
     // Pass the DOM to the text function
     let getProfileEmail = () => $profileEmail.text();
-    // Get @ from email
+    // Get @ from email DOM
     let getPartFromEmail = (getProfile) => {
         if (!!getProfile && getProfile.indexOf('@') !== -1) {
             let atPos = getProfile.indexOf('@');
