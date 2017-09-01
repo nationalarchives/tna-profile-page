@@ -1,39 +1,26 @@
 "use strict";
-var consoleLog = (function () {
-    console.log("%c The National Archives " + "%c Profile Page" + "%c is enabled", "color:red;", "color:black", "color:blue");
-})();
-
 var stopSpamming = (function (config) {
+    // DOM selector
     let $profileEmail = $(config.emailSelector);
-
-    let getProfileEmail = function () {
-        return $profileEmail.html();
-    };
-
-    let getPartFromEmail = function(){
-        if(getProfileEmail().indexOf('@') !== -1) {
-            let atPos = getProfileEmail().indexOf('@');
-            return getProfileEmail().substring(atPos + 1, - 1);
+    // Pass the DOM to the text function
+    let getProfileEmail = () => $profileEmail.text();
+    // Get @ from email DOM
+    let getPartFromEmail = (getProfile) => {
+        if (!!getProfile && getProfile.indexOf('@') !== -1) {
+            let atPos = getProfile.indexOf('@');
+            return getProfile.substring(atPos + 1, -1);
         }
     };
-
-    let appendDOMElem = function (){
-        return $profileEmail.html(getPartFromEmail());
-    };
-
-    let concatElem =  function () {
-        return appendDOMElem() + $profileEmail.append("<div class='pemail'>TNA</div>") + $profileEmail.append(config.domain);
-    };
+    // Append DOM element
+    let appendDOMElem = () => $profileEmail.text( getPartFromEmail( getProfileEmail() ) );
+    // Concat elements
+    let concatElem = () => appendDOMElem() + $profileEmail.append("<div class='pemail'>TNA</div>") + $profileEmail.append(config.domain);
     /**
      * Initialise the functions
      * */
-    let init = function(){
-        concatElem();
-    };
+    let init = () => { concatElem(); };
     // Call init
     init();
 
-    return {
-        /* silence is gold */
-    }
+    return { /* silence is gold */ }
 })({emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk'});
