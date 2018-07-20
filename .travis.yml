@@ -3,13 +3,12 @@ language:
   - node_js
 
 php:
-  - ^7.1
+  - 5.5
 
 node_js:
   - "4"
 
 before_install:
-  - npm install -g grunt-cli
   - curl -s -o $HOME/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh
   - source $HOME/.nvm/nvm.sh
   - nvm install stable
