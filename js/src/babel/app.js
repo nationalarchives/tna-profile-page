@@ -1,5 +1,5 @@
 "use strict";
-var stopSpamming = (function (config) {
+let stopSpamming = (function (config) {
     // DOM selector
     let $profileEmail = $(config.emailSelector);
     // Pass the DOM to the text function
@@ -12,15 +12,17 @@ var stopSpamming = (function (config) {
         }
     };
     // Append DOM element
-    let appendDOMElem = () => $profileEmail.text( getPartFromEmail( getProfileEmail() ) );
+    let appendDOMElem = () => $profileEmail.text(getPartFromEmail(getProfileEmail()));
     // Concat elements
     let concatElem = () => appendDOMElem() + $profileEmail.append("<div class='pemail'>TNA</div>") + $profileEmail.append(config.domain);
     /**
      * Initialise the functions
      * */
-    let init = () => { concatElem(); };
+    let init = () => {
+        concatElem();
+    };
     // Call init
     init();
 
-    return { /* silence is gold */ }
-})({emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk'});
+    return {/* silence is gold */}
+})({emailSelector: '.profile-contact span', domain: 'nationalarchives.gov.uk'});

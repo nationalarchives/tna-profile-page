@@ -32,5 +32,5 @@ var stopSpamming = function (config) {
     init();
 
     return {/* silence is gold */};
-}({ emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk' });
+}({ emailSelector: '.profile-contact span', domain: 'nationalarchives.gov.uk' });
 //# sourceMappingURL=profile-page.js.map
