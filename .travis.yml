@@ -3,7 +3,7 @@ language:
   - node_js
 
 php:
-  - ^7.1
+  - "7.1"
 
 node_js:
   - "stable"
