@@ -3,10 +3,10 @@ language:
   - node_js
 
 php:
-  - 5.5
+  - ^7.1
 
 node_js:
-  - "4"
+  - "stable"
 
 before_install:
   - curl -s -o $HOME/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh
@@ -15,7 +15,6 @@ before_install:
   - node --version
 
 install:
-  - npm test
   - composer require --dev phpunit/phpunit
   - npm install
 
