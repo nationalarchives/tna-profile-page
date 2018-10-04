@@ -7,7 +7,7 @@ var stopSpamming = function (config) {
     var getProfileEmail = function getProfileEmail() {
         return $profileEmail.text();
     };
-    // Get @ from email
+    // Get @ from email DOM
     var getPartFromEmail = function getPartFromEmail(getProfile) {
         if (!!getProfile && getProfile.indexOf('@') !== -1) {
             var atPos = getProfile.indexOf('@');
@@ -32,5 +32,5 @@ var stopSpamming = function (config) {
     init();
 
     return {/* silence is gold */};
-}({ emailSelector: '.profile-contact span', domain: 'nationalarchives.gsi.gov.uk' });
+}({ emailSelector: '.profile-contact span', domain: 'nationalarchives.gov.uk' });
 //# sourceMappingURL=profile-page.js.map
