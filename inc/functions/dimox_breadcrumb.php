@@ -110,7 +110,7 @@ function dimox_breadcrumb()
 
             echo '<a href=' . home_url() . $pre_path . $after_pre_path . '>Our research and people</a>';
             echo $sep;
-            echo '<a href=' . home_url() . $pre_path . $after_pre_path . $reverse[2] . '>Staff profiles</a>';
+            echo '<a href=' . home_url() . $pre_path . $after_pre_path . $reverse[2] . '>Staff research profiles</a>';
             echo $sep;
             echo $parent_title = get_the_title($post->post_parent);
         }
