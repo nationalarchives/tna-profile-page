@@ -164,13 +164,6 @@
         background: none;
       }
     }
-    .entry-content {
-      border-right: none;
-      border-left: none;
-    }
-    .entry-content:after {
-      background: none;
-    }
     .card {
       a {
         text-decoration: none;
@@ -239,4 +232,23 @@
   }
 }
 
-
+.page-id-2488 {
+  .profile-page {
+    .entry-header {
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      border-top: 2px solid #000;
+    }
+    .entry-header, .entry-content {
+      padding-left: 0 !important;
+    }
+  }
+  .entry-content {
+    border-right: none;
+    border-left: none;
+  }
+  .entry-content:after {
+    background: none;
+  }
+}

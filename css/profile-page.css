@@ -156,13 +156,6 @@
 .profile-page-plugin .default-page .profile-page .entry-content:after {
   background: none;
 }
-.profile-page-plugin .default-page .entry-content {
-  border-right: none;
-  border-left: none;
-}
-.profile-page-plugin .default-page .entry-content:after {
-  background: none;
-}
 .profile-page-plugin .default-page .card a {
   text-decoration: none;
 }
@@ -219,6 +212,23 @@
 }
 .single-profile .fa-envelope {
   margin-right: 10px;
+}
+
+.page-id-2488 .profile-page .entry-header {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top: 2px solid #000;
+}
+.page-id-2488 .profile-page .entry-header, .page-id-2488 .profile-page .entry-content {
+  padding-left: 0 !important;
+}
+.page-id-2488 .entry-content {
+  border-right: none;
+  border-left: none;
+}
+.page-id-2488 .entry-content:after {
+  background: none;
 }
 
 /*# sourceMappingURL=profile-page.css.map */
