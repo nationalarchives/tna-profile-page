@@ -152,6 +152,39 @@
       width: 100%;
     }
   }
+
+  .default-page {
+    .profile-page {
+      .entry-content {
+        .well {
+          margin-bottom: 2em;
+        }
+      }
+      .entry-content:after {
+        background: none;
+      }
+    }
+    .card {
+      a {
+        text-decoration: none;
+        h2 {
+          text-decoration: underline;
+        }
+      }
+      a:hover {
+        outline: none;
+        .entry-content {
+          background-color: #134571;
+          h2 {
+            text-decoration: underline;
+          }
+          p {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
 }
 
 .single-profile {
@@ -199,4 +232,23 @@
   }
 }
 
-
+.page-id-2488 {
+  .profile-page {
+    .entry-header {
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      border-top: 2px solid #000;
+    }
+    .entry-header, .entry-content {
+      padding-left: 0 !important;
+    }
+  }
+  .entry-content {
+    border-right: none;
+    border-left: none;
+  }
+  .entry-content:after {
+    background: none;
+  }
+}
