@@ -1,5 +1,5 @@
 # tna-profile-page
-TNA profile page Wordpress plugin
+TNA profile page Wordpress plugin (v1.1 - 2020-12-16)
 
 ## Usage
 ### Step 1
