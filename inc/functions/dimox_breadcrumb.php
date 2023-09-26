@@ -106,11 +106,9 @@ function dimox_breadcrumb()
             $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             $pieces = explode("/", $actual_link);
             $reverse = array_reverse($pieces);
-            $after_pre_path = '/our-research-and-people/';
+            $after_pre_path = '/staff-research-profiles/';
 
-            echo '<a href=' . home_url() . $pre_path . $after_pre_path . '>Our research and people</a>';
-            echo $sep;
-            echo '<a href=' . home_url() . $pre_path . $after_pre_path . $reverse[2] . '>Staff research profiles</a>';
+            echo '<a href=' . home_url() . $pre_path . $after_pre_path . '>Staff research profiles</a>';
             echo $sep;
             echo $parent_title = get_the_title($post->post_parent);
         }
