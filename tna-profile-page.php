@@ -3,7 +3,7 @@
  * Plugin Name: The National Archives Profile Page
  * Plugin URI: nationalarchives.gov.uk
  * Description: Create profile pages
- * Version: 1.0.0
+ * Version: 1.0.1 (2023-09-26)
  * Author: Mihai Diaconita
  * License: GPL2
  */
