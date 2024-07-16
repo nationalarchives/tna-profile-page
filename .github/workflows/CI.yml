@@ -1,0 +1,45 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+
+  php:
+    name: PHPUnit
+
+    strategy:
+      fail-fast: false
+
+    # Includes PHP 8.1
+    # https://github.com/actions/runner-images/blob/ubuntu22/20240714.1/images/ubuntu/Ubuntu2204-Readme.md
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Test
+      run: composer test
+
+  js:
+    name: QUnit
+
+    strategy:
+      fail-fast: false
+
+    # Includes Node.js 18
+    # https://github.com/actions/runner-images/blob/ubuntu22/20240714.1/images/ubuntu/Ubuntu2204-Readme.md
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - run: npm install
+
+    - run: npm test

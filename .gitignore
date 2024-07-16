@@ -7,10 +7,13 @@
 ## Directory-based project format:
 .idea/
 
-# Dependency directory
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
+### npm test
+### https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
+/node_modules
+/package-lock.json
 
-### Composer template
-composer.phar
+### composer test
+/composer.phar
 /vendor/
+/composer.lock
+/.phpunit.result.cache

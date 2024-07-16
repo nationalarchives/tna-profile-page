@@ -24,5 +24,5 @@ let stopSpamming = (function (config) {
     // Call init
     init();
 
-    return {/* silence is gold */}
+    return {/* silence is gold */};
 })({emailSelector: '.profile-contact span', domain: 'nationalarchives.gov.uk'});

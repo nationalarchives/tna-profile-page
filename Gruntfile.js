@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             }
         },
         eslint: {
-            target: "js/babel/app.js",
+            target: "js/src/babel/app.js",
             options: {
                 configFile: 'conf/eslint.json'
             }
